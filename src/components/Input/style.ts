@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   input: {
     flex: 1,
     paddingLeft: 12,
-    fontSize: 14
+    fontSize: 14,
   },
    inputWrapper: {
     height: 56,
@@ -16,7 +16,8 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 8
+    borderRadius: 8,
+
    },
    iconContainer: {
     width: 56,
@@ -24,6 +25,6 @@ export const styles = StyleSheet.create({
     borderRightWidth: 3,
     borderRightColor: '#F3F4F5',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
    }
 });
