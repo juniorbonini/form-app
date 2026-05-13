@@ -105,7 +105,9 @@
                   aria-live="polite"
                 ></span>
               </div>
+            </div>
 
+            <div class="gridContainer gridTwoContainer">
               <div class="fieldGroup" id="groupEmail">
                 <label for="groupEmail" class="fieldLabel"> Email </label>
                 <input
@@ -182,7 +184,7 @@
                 />
               </div>
 
-              <div class="fieldGroup fieldGroupNumber" id="groupNumber">
+              <div class="fieldGroup" id="groupNumber">
                 <label for="inputNumber" class="fieldLabel">Número</label>
                 <input
                   type="number"
@@ -192,10 +194,7 @@
                 />
               </div>
 
-              <div
-                class="fieldGroup fieldGroupNeighborhood"
-                id="groupNeighborhood"
-              >
+              <div class="fieldGroup" id="groupNeighborhood">
                 <label for="inputNeighborhood" class="fieldLabel">Bairro</label>
                 <input
                   type="text"
@@ -206,7 +205,19 @@
                 />
               </div>
 
-              <div class="fieldGroup fieldGroupState" id="groupState">
+              <div class="fieldGroup" id="groupCity">
+                <label class="fieldLabel" for="inputCity">Cidade</label>
+                <input
+                  class="fieldInput fieldReadonly"
+                  id="inputCity"
+                  type="text"
+                  placeholder="Preenchido pelo CEP"
+                  readonly
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="fieldGroup" id="groupState">
                 <label for="inputState" class="fieldLabel">Estado</label>
                 <input
                   type="text"
@@ -218,6 +229,57 @@
               </div>
             </div>
           </fieldset>
+
+          <fieldset class="fieldContainer" id="sectionAccess">
+            <legend class="fieldLegend">
+              <span class="legend" aria-hidden="true">03</span>
+              Acesso
+            </legend>
+
+            <div class="fieldGroup gridTwoContainer">
+              <div class="fieldGroup" id="groupPassword">
+                <label for="inputPassword" class="fieldLabel">Senha</label>
+                <input
+                  type="text"
+                  id="inputPassword"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  placeholder="Sua senha (Mínimo de 8 caracteres)"
+                  class="input"
+                />
+                <span
+                  class="fieldFeedback"
+                  id="feedbackPassword"
+                  aria-live="polite"
+                ></span>
+              </div>
+              <div class="fieldGroup" id="groupConfirmPassword">
+                <label for="inputConfirmPassword" class="fieldLabel"
+                  >Confirme a senha</label
+                >
+                <input
+                  type="text"
+                  id="inputConfirmPassword"
+                  placeholder="Confirme sua a senha"
+                  autocapitalize="off"
+                  autocomplete="off"
+                  class="input"
+                />
+                <span class="fieldFeedback" id="feedbackConfirmPassword"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="actionContaner">
+            <button class="btn btnGhost" id="clearBtn" type="button">
+              Limpar campos
+            </button>
+
+            <button class="btn btnPrimary" id="btn" type="submit" disabled>
+              <span class="btnText">Criar conta</span>
+              <span class="btnIcon" aria-hidden="true">→</span>
+            </button>
+          </div>
         </form>
       </main>
     </div>
