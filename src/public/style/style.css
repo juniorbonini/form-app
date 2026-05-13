@@ -391,10 +391,109 @@ body {
   box-shadow: none;
 }
 
+.fieldFeedback {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
+  min-height: 1.6rem;
+  transition: color var(--transition-fast);
+}
+
+.fieldFeedback.success {
+  color: var(--clr-success);
+}
+.fieldFeedback.error {
+  color: var(--clr-danger);
+}
+
+.inputWithIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWithIcon .fieldInput {
+  padding-right: var(--sz-10);
+}
+
+.inputSpinner {
+  position: absolute;
+  right: var(--sz-4);
+  color: var(--clr-cyan);
+  font-size: var(--fz-md);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .actionContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: var(--sz-4);
   padding-top: var(--sz-2);
+}
+
+.btn {
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sz-2);
+  white-space: nowrap;
+  font-size: var(--fz-base);
+}
+
+.btnPrimary {
+  height: var(--sz-12);
+  padding: 0 var(--sz-7);
+  background: var(--clr-cyan);
+  color: var(--clr-bg);
+  box-shadow: var(--shadow-btn);
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: #33ecff;
+  box-shadow: 0 0.4rem 2.8rem rgba(0, 229, 255, 0.45);
+  transform: translateY(-1px);
+}
+
+.btnPrimary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btnIcon {
+  transition: transform var(--transition-fast);
+}
+
+.btnPrimary:hover:not(:disabled) .btnIcon {
+  transform: translateX(4px);
+}
+
+.btnGhost {
+  height: var(--sz-12);
+  padding: 0 var(--sz-6);
+  background: transparent;
+  color: var(--clr-txt-secondary);
+  border: 1px solid var(--clr-border);
+}
+
+.btnGhost:hover {
+  border-color: var(--clr-border-hi);
+  color: var(--clr-txt-primary);
+  background: var(--clr-surface-hi);
 }
