@@ -315,3 +315,15 @@ body {
   border-radius: var(--radius-sm);
   padding: 0.2rem var(--sz-2);
 }
+
+.gridContainer {
+  display: grid;
+  gap: var(--sz-4);
+}
+
+.gridTwoContainer {
+  grid-template-columns: 1fr 1fr;
+}
+.gridThreeContainer {
+  grid-template-columns: 16rem 1fr 10rem;
+}
