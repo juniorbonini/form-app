@@ -265,3 +265,19 @@ body {
   transition: width var(--transition-slow);
   box-shadow: 0 0 1rem var(--clr-cyan-glow);
 }
+
+.mainContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--sz-10) var(--sz-8);
+  overflow-y: auto;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 72rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-8);
+}
