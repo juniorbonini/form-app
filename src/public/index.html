@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,27 +10,27 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style/style.css" />
-    <title>CadastroLaB</title>
+    <title>CadastroLab — Registro de Usuário</title>
   </head>
   <body>
-    <div class="noiseContainer" aria-hidden="true"></div>
+    <div class="bgNoise" aria-hidden="true"></div>
+
     <div class="pageContainer">
       <aside class="asideContainer">
         <div class="asideInner">
           <div class="brandMark">
             <span class="brandIcon" aria-hidden="true">⬡</span>
-            <span class="title">CadastroLaB</span>
+            <span class="title">CadastroLab</span>
           </div>
           <div class="asideContent">
             <h1 class="asideTitle">
-              Crie sua <br />
+              Crie sua<br />
               <em>conta agora</em>
             </h1>
-            <p class="asideSubTitle">
+            <p class="asideSubtitle">
               Preencha os dados ao lado. O endereço é preenchido automaticamente
               pelo CEP.
             </p>
-
             <ul class="listContainer">
               <li class="listItem">
                 <span class="listIcon" aria-hidden="true">◈</span>
@@ -46,8 +46,7 @@
               </li>
             </ul>
           </div>
-
-          <div class="progressContainer" aria-label="Progresso de formulário">
+          <div class="progressContainer" aria-label="Progresso do formulário">
             <div class="progressHeader">
               <span class="progressLabel">Completude</span>
               <span class="progressValue" id="progressValue">0%</span>
@@ -66,21 +65,21 @@
           novalidate
           autocomplete="off"
         >
-          <fieldset class="fieldContainer" id="sectionProfile">
+          <fieldset class="fieldContainer" id="fieldProfile">
             <legend class="fieldLegend">
               <span class="legend" aria-hidden="true">01</span>
-              Dados pessoais
+              Dados Pessoais
             </legend>
 
-            <div class="gridContainer gridTwoContainer">
+            <div class="fieldGrid fieldGridTwo">
               <div class="fieldGroup" id="groupName">
-                <label for="inputName" class="fieldLabel">Nome</label>
+                <label class="fieldLabel" for="inputName">Nome completo</label>
                 <input
-                  type="text"
-                  id="inputName"
-                  placeholder="Seu nome"
-                  autocapitalize="off"
                   class="input"
+                  id="inputName"
+                  type="text"
+                  placeholder="Seu nome completo"
+                  autocomplete="off"
                 />
                 <span
                   class="fieldFeedback"
@@ -90,14 +89,14 @@
               </div>
 
               <div class="fieldGroup" id="groupCpf">
-                <label for="inputCpf" class="fieldLabel">CPF</label>
+                <label class="fieldLabel" for="inputCpf">CPF</label>
                 <input
-                  type="text"
+                  class="input"
                   id="inputCpf"
+                  type="text"
                   placeholder="000.000.000-00"
                   maxlength="14"
                   autocomplete="off"
-                  class="input"
                 />
                 <span
                   class="fieldFeedback"
@@ -107,15 +106,15 @@
               </div>
             </div>
 
-            <div class="gridContainer gridTwoContainer">
+            <div class="fieldGrid fieldGridTwo">
               <div class="fieldGroup" id="groupEmail">
-                <label for="groupEmail" class="fieldLabel"> Email </label>
+                <label class="fieldLabel" for="inputEmail">E-mail</label>
                 <input
-                  type="email"
-                  id="inputEmail"
-                  autocapitalize="off"
-                  placeholder="seuemail@email.com"
                   class="input"
+                  id="inputEmail"
+                  type="email"
+                  placeholder="seu@email.com"
+                  autocomplete="off"
                 />
                 <span
                   class="fieldFeedback"
@@ -125,48 +124,51 @@
               </div>
 
               <div class="fieldGroup" id="groupPhone">
-                <label for="inputPhone" class="fieldLabel" id="groupPhone"
-                  >Telefone</label
-                >
+                <label class="fieldLabel" for="inputPhone">Telefone</label>
                 <input
-                  type="numeric"
+                  class="input"
                   id="inputPhone"
+                  type="text"
                   placeholder="(00) 00000-0000"
                   maxlength="15"
-                  class="input"
+                  autocomplete="off"
                 />
                 <span
                   class="fieldFeedback"
-                  id="feedbackTelphone"
+                  id="feedbackPhone"
                   aria-live="polite"
                 ></span>
               </div>
             </div>
           </fieldset>
 
-          <fieldset class="fieldContainer" id="sectionAddress">
+          <!-- Seção: Endereço -->
+          <fieldset class="fieldContainer" id="fieldAddress">
             <legend class="fieldLegend">
-              <span class="legend">02</span>
+              <span class="legend" aria-hidden="true">02</span>
               Endereço
             </legend>
-            <div class="gridContainer gridThreeContainer">
+
+            <div class="fieldGrid fieldGridThree">
               <div class="fieldGroup fieldGroupCep" id="groupCep">
-                <label for="inputCep" class="fieldLabel">CEP</label>
-                <input
-                  type="text"
-                  id="inputCep"
-                  autocapitalize="off"
-                  maxlength="9"
-                  placeholder="00000-000"
-                  class="input"
-                />
-                <span
-                  class="inputSpinner"
-                  id="cepSpinner"
-                  aria-hidden="true"
-                  hidden
-                  >⟳</span
-                >
+                <label class="fieldLabel" for="inputCep">CEP</label>
+                <div class="inputWithIcon">
+                  <input
+                    class="input"
+                    id="inputCep"
+                    type="text"
+                    placeholder="00000-000"
+                    maxlength="9"
+                    autocomplete="off"
+                  />
+                  <span
+                    class="inputSpinner"
+                    id="cepSpinner"
+                    aria-hidden="true"
+                    hidden
+                    >⟳</span
+                  >
+                </div>
                 <span
                   class="fieldFeedback"
                   id="feedbackCep"
@@ -175,40 +177,51 @@
               </div>
 
               <div class="fieldGroup fieldGroupStreet" id="groupStreet">
-                <label for="inputStreet" class="fieldLabel">Rua</label>
+                <label class="fieldLabel" for="inputStreet">Rua</label>
                 <input
-                  type="text"
+                  class="input fieldReadonly"
                   id="inputStreet"
-                  autocapitalize="on"
-                  placeholder="logradouro"
+                  type="text"
+                  placeholder="Preenchido pelo CEP"
+                  readonly
+                  autocomplete="off"
                 />
               </div>
 
               <div class="fieldGroup" id="groupNumber">
-                <label for="inputNumber" class="fieldLabel">Número</label>
+                <label class="fieldLabel" for="inputNumber">Número</label>
                 <input
-                  type="number"
+                  class="input"
                   id="inputNumber"
-                  placeholder="Nº"
-                  class="input"
-                />
-              </div>
-
-              <div class="fieldGroup" id="groupNeighborhood">
-                <label for="inputNeighborhood" class="fieldLabel">Bairro</label>
-                <input
                   type="text"
+                  placeholder="Nº"
+                  autocomplete="off"
+                />
+                <span
+                  class="fieldFeedback"
+                  id="feedbackNumber"
+                  aria-live="polite"
+                ></span>
+              </div>
+            </div>
+
+            <div class="fieldGrid fieldGridThree">
+              <div class="fieldGroup" id="groupNeighborhood">
+                <label class="fieldLabel" for="inputNeighborhood">Bairro</label>
+                <input
+                  class="input fieldReadonly"
                   id="inputNeighborhood"
-                  autocapitalize="on"
-                  placeholder="Bairro"
-                  class="input"
+                  type="text"
+                  placeholder="Preenchido pelo CEP"
+                  readonly
+                  autocomplete="off"
                 />
               </div>
 
               <div class="fieldGroup" id="groupCity">
                 <label class="fieldLabel" for="inputCity">Cidade</label>
                 <input
-                  class="fieldInput fieldReadonly"
+                  class="input fieldReadonly"
                   id="inputCity"
                   type="text"
                   placeholder="Preenchido pelo CEP"
@@ -218,34 +231,35 @@
               </div>
 
               <div class="fieldGroup" id="groupState">
-                <label for="inputState" class="fieldLabel">Estado</label>
+                <label class="fieldLabel" for="inputState">Estado</label>
                 <input
-                  type="text"
+                  class="input fieldReadonly"
                   id="inputState"
+                  type="text"
                   placeholder="UF"
-                  autocapitalize="on"
-                  class="input"
+                  readonly
+                  autocomplete="off"
                 />
               </div>
             </div>
           </fieldset>
 
-          <fieldset class="fieldContainer" id="sectionAccess">
+          <!-- Seção: Acesso -->
+          <fieldset class="fieldContainer" id="fieldAccess">
             <legend class="fieldLegend">
               <span class="legend" aria-hidden="true">03</span>
               Acesso
             </legend>
 
-            <div class="fieldGroup gridTwoContainer">
+            <div class="fieldGrid fieldGridTwo">
               <div class="fieldGroup" id="groupPassword">
-                <label for="inputPassword" class="fieldLabel">Senha</label>
+                <label class="fieldLabel" for="inputPassword">Senha</label>
                 <input
-                  type="text"
-                  id="inputPassword"
-                  autocomplete="off"
-                  autocapitalize="off"
-                  placeholder="Sua senha (Mínimo de 8 caracteres)"
                   class="input"
+                  id="inputPassword"
+                  type="password"
+                  placeholder="Mínimo 8 caracteres"
+                  autocomplete="off"
                 />
                 <span
                   class="fieldFeedback"
@@ -253,36 +267,40 @@
                   aria-live="polite"
                 ></span>
               </div>
-              <div class="fieldGroup" id="groupConfirmPassword">
-                <label for="inputConfirmPassword" class="fieldLabel"
-                  >Confirme a senha</label
+
+              <div class="fieldGroup" id="groupPasswordConfirm">
+                <label class="fieldLabel" for="inputPasswordConfirm"
+                  >Confirmar senha</label
                 >
                 <input
-                  type="text"
-                  id="inputConfirmPassword"
-                  placeholder="Confirme sua a senha"
-                  autocapitalize="off"
-                  autocomplete="off"
                   class="input"
+                  id="inputPasswordConfirm"
+                  type="password"
+                  placeholder="Repita a senha"
+                  autocomplete="off"
                 />
-                <span class="fieldFeedback" id="feedbackConfirmPassword"></span>
+                <span
+                  class="fieldFeedback"
+                  id="feedbackPasswordConfirm"
+                  aria-live="polite"
+                ></span>
               </div>
             </div>
           </fieldset>
 
-          <div class="actionContaner">
+          <div class="actionContainer">
             <button class="btn btnGhost" id="clearBtn" type="button">
-              Limpar campos
+              Limpar dados
             </button>
-
             <button class="btn btnPrimary" id="btn" type="submit" disabled>
               <span class="btnText">Criar conta</span>
-              <span class="btnIcon" aria-hidden="true">→</span>
+              <span class="btniIcon" aria-hidden="true">→</span>
             </button>
           </div>
         </form>
       </main>
     </div>
+
     <script src="./script/index.js" defer></script>
   </body>
 </html>
