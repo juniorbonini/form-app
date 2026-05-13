@@ -113,3 +113,11 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+.pageContainer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 34rem 1fr;
+  min-height: 100vh;
+}
