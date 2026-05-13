@@ -281,3 +281,37 @@ body {
   flex-direction: column;
   gap: var(--sz-8);
 }
+
+.fieldContainer {
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sz-6);
+  display: flex;
+  gap: var(--sz-5);
+  background: var(--clr-surface);
+  position: relative;
+}
+
+.fieldLegend {
+  font-family: var(--font-display);
+  font-size: var(--fz-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-txt-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: flex;
+  align-items: center;
+  gap: var(--sz-3);
+  padding: 0 var(--sz-2);
+  margin-bottom: var(--sz-2);
+}
+
+.lenged {
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
+  color: var(--clr-cyan);
+  background: var(--clr-cyan-glow2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem var(--sz-2);
+}
