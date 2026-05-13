@@ -66,7 +66,7 @@
           novalidate
           autocomplete="off"
         >
-          <fieldset class="fieldContainer" id="fieldContainer">
+          <fieldset class="fieldContainer" id="sectionProfile">
             <legend class="fieldLegend">
               <span class="legend" aria-hidden="true">01</span>
               Dados pessoais
@@ -107,9 +107,7 @@
               </div>
 
               <div class="fieldGroup" id="groupEmail">
-                <label for="groupEmail" class="fieldLabel" id="groupEmail">
-                  Email
-                </label>
+                <label for="groupEmail" class="fieldLabel"> Email </label>
                 <input
                   type="email"
                   id="inputEmail"
@@ -124,19 +122,99 @@
                 ></span>
               </div>
 
-              <div class="fieldGroup">
-                <label for="inputTelphone" class="fieldLabel">Telefone</label>
+              <div class="fieldGroup" id="groupPhone">
+                <label for="inputPhone" class="fieldLabel" id="groupPhone"
+                  >Telefone</label
+                >
                 <input
                   type="numeric"
-                  id="inputTelphone"
+                  id="inputPhone"
                   placeholder="(00) 00000-0000"
                   maxlength="15"
+                  class="input"
                 />
                 <span
                   class="fieldFeedback"
                   id="feedbackTelphone"
                   aria-live="polite"
                 ></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldContainer" id="sectionAddress">
+            <legend class="sectionLegend">
+              <span class="legend">02</span>
+              Endereço
+            </legend>
+            <div class="gridContainer gridThreeContainer">
+              <div class="fieldGroup fieldGroupCep" id="groupCep">
+                <label for="inputCep" class="fieldLabel">CEP</label>
+                <input
+                  type="text"
+                  id="inputCep"
+                  autocapitalize="off"
+                  maxlength="9"
+                  placeholder="00000-000"
+                  class="input"
+                />
+                <span
+                  class="inputSpinner"
+                  id="cepSpinner"
+                  aria-hidden="true"
+                  hidden
+                  >⟳</span
+                >
+                <span
+                  class="fieldFeedback"
+                  id="feedbackCep"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="fieldGroup fieldGroupStreet" id="groupStreet">
+                <label for="inputStreet" class="fieldLabel">Rua</label>
+                <input
+                  type="text"
+                  id="inputStreet"
+                  autocapitalize="on"
+                  placeholder="logradouro"
+                />
+              </div>
+
+              <div class="fieldGroup fieldGroupNumber" id="groupNumber">
+                <label for="inputNumber" class="fieldLabel">Número</label>
+                <input
+                  type="number"
+                  id="inputNumber"
+                  placeholder="Nº"
+                  class="input"
+                />
+              </div>
+
+              <div
+                class="fieldGroup fieldGroupNeighborhood"
+                id="groupNeighborhood"
+              >
+                <label for="inputNeighborhood" class="fieldLabel">Bairro</label>
+                <input
+                  type="text"
+                  id="inputNeighborhood"
+                  autocapitalize="on"
+                  placeholder="Bairro"
+                  class="input"
+                />
+              </div>
+
+              <div class="fieldGroup fieldGroupState" id="groupState">
+                <label for="inputState" class="fieldLabel">Estado</label>
+                <input
+                  type="text"
+                  id="inputState"
+                  placeholder="UF"
+                  autocapitalize="on"
+                  class="input"
+                />
               </div>
             </div>
           </fieldset>
