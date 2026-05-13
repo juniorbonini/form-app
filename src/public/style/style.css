@@ -132,3 +132,35 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+.asideInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-10);
+  padding: var(--sz-10) var(--sz-8);
+  height: 100%;
+}
+
+.bandMark {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-3);
+}
+
+.brandIcon {
+  font-size: var(--fz-xl);
+  color: var(--clr-cyan);
+  text-shadow: 0 0 1.6rem var(--clr-cyan);
+  animation: spinHex 8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spinHex {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
