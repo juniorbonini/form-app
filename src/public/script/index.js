@@ -152,4 +152,15 @@ const maskCpf = (value) =>
     const valid = Object.values(this.scores).filter(Boolean).length;
     return Math.round((valid / total) * 100);
   }
+
+  updateProgress() {
+    const score = this.getScore();
+
+    getElement("progressFill").style.width = `${score}%`
+    getElement("progressValue").textContent = `${score}%`
+  }
+
+  updateSubmitBtn() {
+    getElement("btn").disabled = this.getScore() < 100;
+  }
  }
