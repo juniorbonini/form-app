@@ -117,3 +117,12 @@ const maskCpf = (value) =>
  }
 
  const clearSession = () => sessionStorage.removeItem(SESSION_KEY);
+
+
+ class FormValidator {
+  constructor(fields) {
+    this.fields = fields;
+    this.scores = {};
+    this.fields.forEach((field) => (this.scores[field.inputId] = false));
+  }
+ }
