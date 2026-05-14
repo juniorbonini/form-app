@@ -84,3 +84,35 @@ const maskCpf = (value) =>
     spinner.hidden = true;
   }
  }
+
+ const getSessionFields = () => {
+  "inputName",
+  "inputCpf",
+  "inputEmail",
+  "inputPhone",
+  "inputCep",
+  "inputStreet",
+  "inputNeighborhood",
+  "inputCity",
+  "inputState",
+  "inputNumber"
+ }
+
+ const saveSession = () => {
+  const data = {};
+  getSessionFields().forEach((id) => {
+    data[id] = getValue(id);
+  });
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify(data));
+ }
+
+ const loadSession = () => {
+  const raw = sessionStorage.getItem(SESSION_KEY);
+  if (!raw) return;
+
+  const data = JSON.parse(raw);
+  getSessionFields().forEach((id) => {
+    if (data[id]) setValue(id, data[id])
+  })
+
+ }
