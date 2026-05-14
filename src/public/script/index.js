@@ -164,3 +164,63 @@ const maskCpf = (value) =>
     getElement("btn").disabled = this.getScore() < 100;
   }
  }
+
+ const validator = new FormValidator([
+  {
+    inputId: "inputName",
+    feedbackId: "feedbackName",
+    validator: (value) => value.length >= 3,
+    seccessMessage: "Nome válido",
+    errorMessage: "Informe o nome completo",
+  },
+  {
+    inputId: "inputCpf",
+    feedbackId: "feedbackCpf",
+    validator: isValidCpf,
+    successMessage: "CPF válido",
+    errorMessage: "CPF inválido",
+  },
+  {
+    inputId: "inputEmail",
+    feedbackId: "feedbackEmail",
+    validator: isValidEmail,
+    successMessage: "E-mail válido",
+    errorMessage: "E-mail inválido"
+  },
+
+  {
+    inputId: "inputPhone",
+    feedbackId: "feedbackPhone",
+    validator: isValidPhone,
+    successMessage: "Telefone válido",
+    errorMessage: "Telefone inválido",
+  },
+  {
+    inputId: "inputCep",
+    feedbackId: "feedbackCep",
+    validator: isValidCep,
+    successMessage: "CEP válido",
+    errorMessage: "CEP inválido",
+  },
+  {
+    inputId: "inputNumber",
+    feedbackId: "feedbackNumber",
+    validator: (value) => value.length >= 1,
+    successMessage: "",
+    errorMessage: "Informe o número",
+  },
+  {
+    inputId: "inputPassword",
+    feedbackId: "feedbackPassword",
+    validator: isValidPassword,
+    successMessage: "Senha válida",
+    errorMessage: "Mínimo 8 caracteres",
+  },
+  {
+    inputId: "inputConfirmPassword",
+    feedbackId: "feedbackConfirmPassword",
+    validator: (value) => value === getValue("inputPassword"),
+    successMessage: "Senhas conferem",
+    errorMessage: "As senhas não conferem",
+  },
+ ])
