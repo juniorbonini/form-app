@@ -35,3 +35,21 @@ const maskCpf = (value) =>
      .replace(/\D/g, "")
      .slice(0, 8)
      .replace(/(\d{5})(\d{0,3})/, "$1-$2");
+
+ const setFieldState = (inputId, feedbackId, isOk, message = "") => {
+  const input = getElement(inputId);
+  const feedback = getElmeent(feedbackId);
+
+  input.classList.remove("isValid", "isInValid");
+  if (feedback) {
+    feedback.textContent = message;
+    feedback.className = "fieldFeedback";
+  }
+  if (isOk === true) {
+    input.classList.add("isValid");
+    if(feedback) feedback.classList.add("success");
+  } else if (isOk === false) {
+    input.classList.add("isInValid");
+    if (feedback) feedback.classList.add("error");
+  }
+ }
