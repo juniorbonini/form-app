@@ -255,3 +255,40 @@ const maskCpf = (value) =>
   "inputPassword",
   "inputConfirmPassword",
  ];
+
+ textFields.forEach((id) => {
+  getElement(id).addEventListener("input", () => {
+    validator.validate(id);
+    saveSession();
+  })
+ })
+
+ getElement("clearBtn").addEventListener("click", () => {
+  getElement("registerForm").reset()
+  clearSession();
+  [...getElement("registerForm").querySelector(".input")].foreEach(
+    (element) => {
+      element.classList.remove("isValid", "isInValid");
+    }
+  );
+  [...getElement("registerForm").querySelector(".fieldFeedback")].forEach(
+    (element) => {
+      element.textCotent = "";
+      element.className = "fieldFeedback";
+    }
+  );
+
+  Object.keys(validator.socres).forEach((key) => (validator.scores[key] = false));
+  validator.updateProgress();
+  validator.updateSubmitBtn();
+ });
+
+ getElement("registerForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert(`Cadastro realizado com sucesso! \n Bem-vindo ${getValue("inputName")}.`);
+
+  clearSession();
+  getElement("registerForm").reset();
+ })
+
+ loadSession();
