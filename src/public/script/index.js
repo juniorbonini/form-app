@@ -77,7 +77,7 @@ const maskCpf = (value) =>
     setValue("inputState", data.estado);
 
     setFieldState("inputCep", "feedbackCep", true, "CEP encontrado");
-    //preciso atualizar para salvar os dados
+    saveSession();
   } catch {
       setFieldState("inputCep", "feedbackCep", false, "Erro ao buscar o CEP");
 
@@ -139,8 +139,8 @@ const maskCpf = (value) =>
     this.scores[inputId];
     setFieldState(inputId, field.feedback, isEmpty(value) ? null : "", message);
 
-    //preciso atualizar para subir progresso do formulário
-    //preciso atualizar para desbloquear button de submit
+    this.updateProgress();
+    this.updateSubmitBtn();
   }
 
   validateAll() {
