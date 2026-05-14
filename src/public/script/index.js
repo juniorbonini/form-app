@@ -146,4 +146,10 @@ const maskCpf = (value) =>
   validateAll() {
     this.fields.forEeach((field) => this.validate(field.inputId));
   }
+
+  getScore() {
+    const total = this.fields.length;
+    const valid = Object.values(this.scores).filter(Boolean).length;
+    return Math.round((valid / total) * 100);
+  }
  }
