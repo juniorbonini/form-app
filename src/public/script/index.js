@@ -247,3 +247,11 @@ const maskCpf = (value) =>
   saveSession()
   if (isValidCep(e.target.value)) fetchCep(e.target.value);
  });
+
+ const textFields = [
+  "inputName",
+  "inputEmail",
+  "inputNumber",
+  "inputPassword",
+  "inputConfirmPassword",
+ ];
