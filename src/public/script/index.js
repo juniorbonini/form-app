@@ -110,17 +110,17 @@ const resetFormState = () => {
 
   form.reset();
 
-  [...form.querySelector(".input")].forEach((element) => {
+  [...form.querySelectorAll(".input")].forEach((element) => {
     element.classList.remove("isValid", "isInvalid");
   });
 
-  [...form.querySelector(".fieldFeddback")].forEach((element) => {
+  [...form.querySelectorAll(".fieldFeedback")].forEach((element) => {
     element.textContent = "";
     element.className = "fieldFeedback";
   });
 
-  Object.keys(validator.socres).forEach(
-    (key) => (validator.socores[key] = false),
+  Object.keys(validator.scores).forEach(
+    (key) => (validator.scores[key] = false),
   );
 
   getElement("progressFill").style.width = "0%";
@@ -128,6 +128,9 @@ const resetFormState = () => {
 
   validator.updateSubmitBtn();
 };
+
+getElement("closeModalBtn").addEventListener("clcik", closeModal);
+getElement("modalConfirmBtn").addEventListener("click", closeModal);
 
 const getSessionFields = () => [
   "inputName",
@@ -349,46 +352,20 @@ textFields.forEach((id) => {
 });
 
 getElement("clearBtn").addEventListener("click", () => {
-  getElement("registerForm").reset();
-
+  resetFormState();
   clearSession();
-
-  [...getElement("registerForm").querySelectorAll(".fieldInput")].forEach(
-    (element) => {
-      element.classList.remove("isValid", "isInvalid");
-    },
-  );
-
-  [...getElement("registerForm").querySelectorAll(".fieldFeedback")].forEach(
-    (element) => {
-      element.textContent = "";
-      element.className = "fieldFeedback";
-    },
-  );
-
-  Object.keys(validator.scores).forEach((key) => {
-    validator.scores[key] = false;
-  });
-
-  validator.updateProgress();
-  validator.updateSubmitBtn();
 });
 
 getElement("registerForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  alert(`Cadastro realizado com sucesso!\nBem-vindo ${getValue("inputName")}.`);
-
-  clearSession();
-
-  [...getElement("registerForm").querySelectorAll(".fieldFeedback")].forEach(
-    (element) => {
-      element.textContent = "";
-      element.className = "fieldFeedback";
-    },
+  openModal(
+    `Cadastro realizado com sucesso!
+      Bem-vindo, ${getValue("inputName")}`,
   );
 
-  getElement("registerForm").reset();
+  clearSession();
+  resetFormState();
 });
 
 loadSession();
