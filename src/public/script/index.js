@@ -96,6 +96,15 @@ const fetchCep = async (cep) => {
   }
 };
 
+const openModal = (message) => {
+  getElement("modalMessage").textContent = message;
+  getElement("successModal").classList.remove("hidden");
+};
+
+const closeModal = () => {
+  getElement("successModal").classList.add("hidden");
+};
+
 const getSessionFields = () => [
   "inputName",
   "inputCpf",
