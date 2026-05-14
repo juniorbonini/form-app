@@ -77,6 +77,7 @@ const maskCpf = (value) =>
     setValue("inputState", data.estado);
 
     setFieldState("inputCep", "feedbackCep", true, "CEP encontrado");
+    //preciso atualizar para salvar os dados
   } catch {
       setFieldState("inputCep", "feedbackCep", false, "Erro ao buscar o CEP");
 
@@ -114,6 +115,7 @@ const maskCpf = (value) =>
   getSessionFields().forEach((id) => {
     if (data[id]) setValue(id, data[id])
   })
+    //preciso atualizar para retonar validações
  }
 
  const clearSession = () => sessionStorage.removeItem(SESSION_KEY);
@@ -124,5 +126,20 @@ const maskCpf = (value) =>
     this.fields = fields;
     this.scores = {};
     this.fields.forEach((field) => (this.scores[field.inputId] = false));
+  }
+
+  validate(inputId) {
+    const field = this.fields.find((field) => field.inputId === inputId);
+    if (!field) return;
+
+    const value = getValue(inputId);
+    const isok = !isEmpty(value); //preciso atualizar com validator()
+    const message = isOk ? field.successMessage : isEmpty(value) ? "" : field.errorMessage;
+
+    this.scores[inputId];
+    setFieldState(inputId, field.feedback, isEmpty(value) ? null : "", message);
+
+    //preciso atualizar para subir progresso do formulário
+    //preciso atualizar para desbloquear button de submit
   }
  }
