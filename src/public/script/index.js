@@ -105,6 +105,30 @@ const closeModal = () => {
   getElement("successModal").classList.add("hidden");
 };
 
+const resetFormState = () => {
+  const form = getElement("registerForm");
+
+  form.reset();
+
+  [...form.querySelector(".input")].forEach((element) => {
+    element.classList.remove("isValid", "isInvalid");
+  });
+
+  [...form.querySelector(".fieldFeddback")].forEach((element) => {
+    element.textContent = "";
+    element.className = "fieldFeedback";
+  });
+
+  Object.keys(validator.socres).forEach(
+    (key) => (validator.socores[key] = false),
+  );
+
+  getElement("progressFill").style.width = "0%";
+  getElement("progressValue").textContent = "0%";
+
+  validator.updateSubmitBtn();
+};
+
 const getSessionFields = () => [
   "inputName",
   "inputCpf",
