@@ -114,5 +114,6 @@ const maskCpf = (value) =>
   getSessionFields().forEach((id) => {
     if (data[id]) setValue(id, data[id])
   })
-
  }
+
+ const clearSession = () => sessionStorage.removeItem(SESSION_KEY);
