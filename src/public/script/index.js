@@ -142,4 +142,8 @@ const maskCpf = (value) =>
     //preciso atualizar para subir progresso do formulário
     //preciso atualizar para desbloquear button de submit
   }
+
+  validateAll() {
+    this.fields.forEeach((field) => this.validate(field.inputId));
+  }
  }
