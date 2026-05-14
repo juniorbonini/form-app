@@ -53,3 +53,34 @@ const maskCpf = (value) =>
     if (feedback) feedback.classList.add("error");
   }
  }
+
+ const fetch = async (cep) => {
+  const digits = cep.replace(/\D/g, "");
+  const spinner = getElementById("cepSpinner");
+
+  if (!isValidCep(cep)) return;
+
+  spinner.hidden = false;
+
+  try {
+    const response = await fetch(`${CEP_API}${digits}/json/`);
+    const data = await response.json();
+
+    if (data.erro) {
+      setFieldState("inputCep", "feedbackCep", false, 'CEP não encontrado');
+      return;
+    }
+
+    setValue("inputStreet", data.logradouro);
+    setValue("inputNeighborhood", data.bairro);
+    setValue("inputCity", data.localidade);
+    setValue("inputState", data.estado);
+
+    setFieldState("inputCep", "feedbackCep", true, "CEP encontrado");
+  } catch {
+      setFieldState("inputCep", "feedbackCep", false, "Erro ao buscar o CEP");
+
+  } finally {
+    spinner.hidden = true;
+  }
+ }
