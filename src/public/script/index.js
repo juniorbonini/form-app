@@ -38,7 +38,11 @@ const maskCpf = (value) =>
 
  const setFieldState = (inputId, feedbackId, isOk, message = "") => {
   const input = getElement(inputId);
-  const feedback = getElmeent(feedbackId);
+  const feedback = getElement("inputCpf").addEventListener("input", (e) => {
+    e.target.value = maskCpf(e.target.value);
+    validator.validate(e.target.value);
+    saveSession();
+  })(feedbackId);
 
   input.classList.remove("isValid", "isInValid");
   if (feedback) {
@@ -54,7 +58,7 @@ const maskCpf = (value) =>
   }
  }
 
- const fetch = async (cep) => {
+ const fetchCep = async (cep) => {
   const digits = cep.replace(/\D/g, "");
   const spinner = getElementById("cepSpinner");
 
@@ -224,3 +228,22 @@ const maskCpf = (value) =>
     errorMessage: "As senhas não conferem",
   },
  ])
+
+ getElement("inputCpf").addEventListener("input", (e) => {
+  e.target.value = maskCpf(e.target.value);
+  validator.validate("inputCpf");
+  saveSession();
+ });
+
+ getElement("inputPhone").addEventListener("input", () => {
+  e.target.value = maskPhone(e.target.value);
+  validator.validate("inputPhone");
+  saveSession();
+ });
+
+ getElement("inputCep").addEventListener("input", (e) => {
+  e.target.value = maskCep(e.target.value);
+  validator.validate("inputCep");
+  saveSession()
+  if (isValidCep(e.target.value)) fetchCep(e.target.value);
+ });
